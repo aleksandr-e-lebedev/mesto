@@ -1,4 +1,4 @@
-class CardList {
+export class CardList {
     constructor(selector) {
         this.container = document.querySelector(selector);
     }

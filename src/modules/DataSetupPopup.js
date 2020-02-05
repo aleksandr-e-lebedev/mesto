@@ -1,4 +1,6 @@
-class DataSetupPopup extends Popup {
+import {Popup} from './Popup.js';
+
+export class DataSetupPopup extends Popup {
     constructor({ container, selector, handleOpenCallback, handleCloseCallback, handleInputCallback, handleSubmitCallback }) {
         super(container, selector);
         this._handleOpen = handleOpenCallback || function () {};
