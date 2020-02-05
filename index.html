@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="style.054ea471a63241342ed0.css">
+</head>
+<body>
+  <div class="root">
+
+    <header class="header root__section">
+      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+    </header>
+
+    <div class="profile root__section">
+      <div class="user-info">
+        <div class="user-info__photo"></div>
+        <div class="user-info__data">
+          <h1 class="user-info__name"></h1>
+          <p class="user-info__job"></p>
+          <button class="user-info__edit-button">Edit</button>
+        </div>
+        <button class="button user-info__button">+</button>
+      </div>
+    </div>
+
+    <!-- Сетка с карточками -->
+    <div class="places-list root__section"></div>
+
+  </div>
+  
+  <!-- Шаблон карточки -->
+  <template id="place-card-template">
+    <div class="place-card">
+      <div class="place-card__image">
+        <button class="place-card__delete-icon"></button>
+      </div>
+      <div class="place-card__description">
+        <h3 class="place-card__name"></h3>
+        <div class="place-card__like-wrapper">
+          <button class="place-card__like-icon"></button>
+          <span class="place-card__like-count"></span>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Шаблон попапа: "Новое место" -->
+  <template id="new-place-popup-template">
+    <div class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form name="newPlace" id="newPlace" class="popup__form" novalidate>
+            <input type="text" minlength="2" maxlength="30" placeholder="Название" required name="placeName" id="placeName" class="popup__input">
+            <div class="popup__error-wrapper">
+              <span id="error-placeName" class="popup__error-message"></span>
+            </div>
+            
+            <input type="url" pattern="https://.*" placeholder="Ссылка на картинку" required name="placeLink" id="placeLink" class="popup__input">
+            <div class="popup__error-wrapper">
+              <span id="error-placeLink" class="popup__error-message"></span>
+            </div>
+            
+            <button name="newPlace" class="button button_disabled popup__button" disabled>+</button>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <!-- Шаблон попапа: "Редактировать профиль" -->
+  <template id="profile-popup-template">
+    <div class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form name="editProfile" id="editProfile" class="popup__form" novalidate>
+            <input type="text" minlength="2" maxlength="30" placeholder="Имя" required name="username" id="username" class="popup__input">
+            <div class="popup__error-wrapper">
+              <span id="error-username" class="popup__error-message"></span>
+            </div>
+            
+            <input type="text" minlength="2" maxlength="30" placeholder="О себе" required name="aboutUser" id="aboutUser" class="popup__input">
+            <div class="popup__error-wrapper">
+              <span id="error-aboutUser" class="popup__error-message"></span>
+            </div>
+            
+            <button name="editProfile" class="button button_disabled popup__button popup__button_type_edit-user-data" disabled>Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <!-- Шаблон попапа: "Увеличить изображение" -->
+  <template id="image-popup-template">
+    <div class="popup">
+      <div class="popup__content popup__content_type_place-image">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <img src="" alt="" class="popup__image">
+      </div>
+    </div>
+  </template>
+
+  <!-- Шаблон попапа: "Обновить аватар пользователя" -->
+  <template id="user-avatar-template">
+    <div class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form name="setAvatar" id="setAvatar" class="popup__form" novalidate>
+          <input type="url" pattern="https://.*" placeholder="Ссылка на аватар" required name="avatarLink" id="avatarLink" class="popup__input">
+            <div class="popup__error-wrapper">
+              <span id="error-avatarLink" class="popup__error-message"></span>
+            </div>
+            
+          <button name="setAvatar" class="button button_disabled popup__button popup__button_type_user-avatar" disabled>Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <script src="main.1e1b5b6a79e2d09d9487.js"></script>
+
+</body>
+</html>
