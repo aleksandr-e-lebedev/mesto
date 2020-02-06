@@ -1,4 +1,4 @@
-class Api {
+export class Api {
     constructor({ address, cohortId, token }) {
         this.address = address;
         this.cohortId = cohortId;
@@ -8,7 +8,7 @@ class Api {
     getAppData() {
         return Promise.all([this.getUserData(), this.getInitialCards()]);
     }
-    
+
     getUserData() {
         return fetch(`${this.address}/${this.cohortId}/users/me`, {
             headers: {
@@ -17,7 +17,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     getInitialCards() {
         return fetch(`${this.address}/${this.cohortId}/cards`, {
             headers: {
@@ -26,7 +26,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     setUserData({ name, about }) {
         return fetch(`${this.address}/${this.cohortId}/users/me`, {
             method: 'PATCH',
@@ -41,7 +41,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     addCard({ name, link }) {
         return fetch(`${this.address}/${this.cohortId}/cards`, {
             method: 'POST',
@@ -56,7 +56,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     removeCard(cardId) {
         return fetch(`${this.address}/${this.cohortId}/cards/${cardId}`, {
             method: 'DELETE',
@@ -67,7 +67,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     toggleCardLike(cardId, like) {
         return fetch(`${this.address}/${this.cohortId}/cards/like/${cardId}`, {
             method: like ? 'PUT' : 'DELETE',
@@ -78,7 +78,7 @@ class Api {
         })
             .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`));
     }
-    
+
     setUserAvatar(avatar) {
         return fetch(`${this.address}/${this.cohortId}/users/me/avatar`, {
             method: 'PATCH',

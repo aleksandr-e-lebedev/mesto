@@ -1,3 +1,21 @@
+/* Импорты модулей */
+
+// JS
+
+import {Api} from './modules/Api.js';
+import {Validation} from './modules/Validation.js';
+import {DataSetupPopup} from './modules/DataSetupPopup.js';
+import {ImagePopup} from './modules/ImagePopup.js';
+import {Card} from './modules/Card.js';
+import {CardList} from './modules/CardList.js';
+import {words} from './modules/words.js';
+
+// CSS
+
+import './pages/index.css';
+
+/* Бизнес-логика */
+
 const root = document.querySelector('.root');
 
 const userName = document.querySelector('.user-info__name');
@@ -7,8 +25,10 @@ const userPhoto = document.querySelector('.user-info__photo');
 const addButton = document.querySelector('.user-info__button');
 const editButton = document.querySelector('.user-info__edit-button');
 
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk' : 'https://praktikum.tk';
+
 const api = new Api({
-    address: 'http://95.216.175.5',
+    address: serverUrl,
     cohortId: 'cohort6',
     token: '4992ddad-a97c-4c49-867a-edb2fabc348b'
 });

@@ -1,4 +1,4 @@
-class Validation {
+export class Validation {
     constructor(words) {
         this._words = words;
     }
@@ -12,7 +12,7 @@ class Validation {
             return true;
         } else {
             errorElement.textContent = '';
-            
+
             return false;
         }
     }
@@ -26,7 +26,7 @@ class Validation {
             return true;
         } else {
             errorElement.textContent = '';
-            
+
             return false;
         }
     }
@@ -36,11 +36,11 @@ class Validation {
 
         if (input.validity.patternMismatch) {
             errorElement.textContent = this._words.ru.patternMismatch;
-            
+
             return true;
         } else {
             errorElement.textContent = '';
-            
+
             return false;
         }
     }
@@ -55,7 +55,7 @@ class Validation {
         } else if (this._isPatternMismatch(input)) {
             isValidInput = false;
         }
-        
+
         return isValidInput ? true : false;
     }
 
@@ -67,7 +67,7 @@ class Validation {
                 if (!elem.checkValidity()) isValidForm = false;
             }
         });
-        
+
         return isValidForm ? true : false;
     }
 
@@ -76,7 +76,7 @@ class Validation {
 
         if (!this.isValidInput(event.target)) isValid = false;
         if (!this.isValidForm(event.currentTarget)) isValid = false;
-        
+
         return isValid ? true : false;
     }
 
